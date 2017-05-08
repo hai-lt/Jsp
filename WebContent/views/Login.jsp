@@ -14,10 +14,10 @@
 		<div>
 			<label>Password</label> <input type="password" name="password">
 		</div>
-		<% if (request.getAttribute("warning") != null) {%>
-			<label><%= request.getAttribute("warning") %></label>
-			<% request.removeAttribute("warning"); %>
-		<% } %>
+			<% if (request.getAttribute("warning") != null) {%>
+				<label><%= request.getAttribute("warning") %></label>
+				<% request.removeAttribute("warning"); %>
+			<% } %>
 		</div>
 		<input type="submit" value="Login">
 	</form>

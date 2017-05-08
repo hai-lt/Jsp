@@ -16,24 +16,24 @@ public abstract class HelperDAO {
     return query(query);
   }
 
-  public ArrayList<String[]> all(String condition) {
-    String query = "select * from " + getTableName() + " where " + condition;
+  public ArrayList<String[]> all(HashMap<String, String> conditions) {
+    String query = "SELECT * FROM " + getTableName();
+    if (conditions != null && !conditions.isEmpty()) {
+      query += " WHERE " + generateCondition(conditions);
+    }
     return query(query);
   }
 
-  public String[] findBy(HashMap<String, String> object) {
-    String condition = "";
-    for (String key : object.keySet()) {
-      condition += key + " = '" + object.get(key) + "' AND ";
+  public String[] findBy(HashMap<String, String> conditions) {
+    String query = "SELECT * FROM " + getTableName();
+    if (conditions != null && !conditions.isEmpty()) {
+      query += " WHERE " + generateCondition(conditions);
     }
-    if (!condition.equals("")) {
-      condition = condition.substring(0, condition.length() - 4);
-    }
-    ArrayList<String[]> objects = all(condition);
-    if (objects.size() == 0) {
+    ArrayList<String[]> result = query(query + " LIMIT 1");
+    if (result.isEmpty()) {
       return null;
     }
-    return all(condition).get(0);
+    return result.get(0);
   }
 
   public ArrayList<String[]> query(String query) {
@@ -51,15 +51,6 @@ public abstract class HelperDAO {
       System.out.println(e.getMessage());
     }
     return data;
-  }
-
-  public String[] find(long id) {
-    String condition = "id = " + id;
-    ArrayList<String[]> objects = all(condition);
-    if (objects.size() == 0) {
-      return null;
-    }
-    return all(condition).get(0);
   }
 
   public boolean destroy(String condition) {
@@ -130,4 +121,14 @@ public abstract class HelperDAO {
     return true;
   }
 
+  private String generateCondition(HashMap<String, String> hash) {
+    if (hash == null || hash.isEmpty()) {
+      return "";
+    }
+    String conditon = " ";
+    for (String key : hash.keySet()) {
+      conditon += key + " = '" + hash.get(key) + "' AND ";
+    }
+    return conditon.substring(0, conditon.length() - 4);
+  }
 }
