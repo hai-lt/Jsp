@@ -2,26 +2,35 @@ package models.dao;
 
 import java.util.ArrayList;
 
-public class UserDAO extends BaseDAO {
+import models.bean.User;
+
+public class UserDAO {
+  public static final String TABLE_NAME = "users";
+  public static final String USERNAME_KEY = "username";
+  public static final String PASSWORD_KEY = "password";
+  public static final String ID_KEY = "id";
   public static int columns;
+  private static HelperDAO helper;
 
-  @Override
-  public String getTableName() {
-    return "users";
-  }
+  public static HelperDAO getHelper() {
+    if (helper == null) {
+      helper = new HelperDAO() {
 
-  @Override
-  public ArrayList<String> getAttributesName() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public int getColumn() {
-    if (columns < 1) {
-      columns = getAttributesName().size(); 
+        @Override
+        public String getTableName() {
+          return TABLE_NAME;
+        }
+      };
     }
-    return columns;
+    return helper;
+  }
+
+  public ArrayList<User> getAll() {
+    ArrayList<User> users = new ArrayList<>();
+    for (String[] strings : getHelper().all()) {
+      users.add(new User(strings));
+    }
+    return users;
   }
 
 }
