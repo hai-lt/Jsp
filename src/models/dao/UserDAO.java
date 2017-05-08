@@ -2,9 +2,7 @@ package models.dao;
 
 import java.util.ArrayList;
 
-import models.BaseModel;
-
-public class UserDAO extends BaseModel {
+public class UserDAO extends BaseDAO {
   public static int columns;
 
   @Override

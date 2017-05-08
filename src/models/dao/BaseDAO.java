@@ -1,4 +1,4 @@
-package models;
+package models.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 import config.Database;
 
-public abstract class BaseModel {
+public abstract class BaseDAO {
   public abstract String getTableName();
 
   public abstract ArrayList<String> getAttributesName();
