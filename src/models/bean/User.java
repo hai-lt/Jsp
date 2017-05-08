@@ -1,20 +1,29 @@
 package models.bean;
 
 public class User {
-  private String id, username, password;
+  private String id, username, password, token;
 
   public User(String... strings) {
     setAttributes(strings);
   }
 
   public User() {
-    
+
   }
 
   public void setAttributes(String... strings) {
     id = strings[0];
     username = strings[1];
     password = strings[2];
+    token = strings[4];
+  }
+
+  public String getToken() {
+    return token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
   }
 
   public String getUsername() {
