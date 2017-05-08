@@ -1,8 +1,10 @@
-package models;
+package models.dao;
 
 import java.util.ArrayList;
 
-public class User extends BaseModel {
+import models.BaseModel;
+
+public class UserDAO extends BaseModel {
   public static int columns;
 
   @Override
