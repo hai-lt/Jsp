@@ -1,4 +1,4 @@
-package profile;
+package controllers;
 
 import java.io.IOException;
 
@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class Profile
  */
 @WebServlet("/profile")
-public class Profile extends HttpServlet {
+public class ProfileServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   /**
    * @see HttpServlet#HttpServlet()
    */
-  public Profile() {
+  public ProfileServlet() {
     super();
   }
 
