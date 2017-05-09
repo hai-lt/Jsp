@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.bean.User;
 import models.bo.LoginBO;
 
 /**
@@ -16,13 +17,14 @@ import models.bo.LoginBO;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
+  private LoginBO loginBO;
 
   /**
    * @see HttpServlet#HttpServlet()
    */
   public LoginServlet() {
     super();
-    // TODO Auto-generated constructor stub
+    loginBO = new LoginBO();
   }
 
   /**
@@ -30,11 +32,12 @@ public class LoginServlet extends HttpServlet {
    *      response)
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    if (new LoginBO().isExist(request.getParameter("username"), request.getParameter("password"))) {
-      response.sendRedirect("profile");
+    User user = loginBO.authenticate(request.getParameter("username"), request.getParameter("password"));
+    if (user != null) {
+      response.setHeader("token", user.getToken());
+      request.getRequestDispatcher("/index").forward(request, response);
       return;
     }
-    request.setAttribute("warning", "Wrong username or password");
     request.getRequestDispatcher("views/Login.jsp").forward(request, response);
   }
 
