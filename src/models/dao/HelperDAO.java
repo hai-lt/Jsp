@@ -98,12 +98,8 @@ public abstract class HelperDAO {
     }
     query += setOfAttributes.substring(0, setOfAttributes.length() - 2);
 
-    String con = "";
     if (condition != null && !condition.isEmpty()) {
-      for (String key : condition.keySet()) {
-        con += key + " = '" + condition.get(key) + "', ";
-      }
-      query += " WHERE " + con.substring(0, con.length() - 2);
+      query += " WHERE " + generateCondition(condition);
     }
     Database.getInstance().getStatement().executeLargeUpdate(query);
   }
