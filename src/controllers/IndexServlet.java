@@ -33,7 +33,7 @@ public class IndexServlet extends HttpServlet {
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     // TODO Auto-generated method stub
-    String token = response.getHeader("token");
+    String token = (String) request.getSession().getAttribute("token");
     if (token == null) {
       request.getRequestDispatcher("/views/Login.jsp").forward(request, response);
       return;
