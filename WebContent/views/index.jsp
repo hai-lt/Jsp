@@ -10,7 +10,7 @@
 <body>
 	<% User user = (User) request.getAttribute("user"); %>
 	<% if (user != null ) { %>
-	<b> <%= user.getUsername() %></b>
+	<b> Welcome <%= user.getUsername() %></b>
 	<% } %>
 </body>
 </html>
