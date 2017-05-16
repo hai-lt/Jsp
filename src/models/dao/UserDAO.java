@@ -36,7 +36,10 @@ public class UserDAO {
   }
 
   public User findBy(HashMap<String, String> conditions) {
-    return new User(getHelper().findBy(conditions));
+    String userAttributes[] = getHelper().findBy(conditions);
+    if (userAttributes == null)
+      return null;
+    return new User(userAttributes);
   }
 
 }
