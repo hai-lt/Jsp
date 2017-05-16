@@ -1,31 +1,30 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import models.bean.User;
 import models.bo.LoginBO;
+import models.dao.UserDAO;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class IndexServlet
  */
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/index")
+public class IndexServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
-  private LoginBO loginBO;
 
   /**
    * @see HttpServlet#HttpServlet()
    */
-  public LoginServlet() {
+  public IndexServlet() {
     super();
-    loginBO = new LoginBO();
   }
 
   /**
@@ -33,14 +32,21 @@ public class LoginServlet extends HttpServlet {
    *      response)
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    User user = loginBO.authenticate(request.getParameter("username"), request.getParameter("password"));
-    if (user != null) {
-      HttpSession session = request.getSession();
-      session.setAttribute("token", user.getToken());
-      response.sendRedirect("index");
+    // TODO Auto-generated method stub
+    String token = (String) request.getSession().getAttribute("token");
+    if (token == null) {
+      request.getRequestDispatcher("/views/Login.jsp").forward(request, response);
       return;
     }
-    request.getRequestDispatcher("views/Login.jsp").forward(request, response);
+    HashMap<String, String> condition = new HashMap<>();
+    condition.put(UserDAO.TOKEN_KEY, token);
+    User user = new UserDAO().findBy(condition);
+    if (user == null) {
+      request.getRequestDispatcher("/views/Login.jsp").forward(request, response);
+      return;
+    }
+    request.setAttribute("user", user);
+    request.getRequestDispatcher("views/index.jsp").forward(request, response);
   }
 
   /**
