@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Vaxin index</title>
+<title>Users Management</title>
 </head>
 <body>
 	<% User user = (User) request.getAttribute("user"); %>
