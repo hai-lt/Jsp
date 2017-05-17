@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container col">
-		<form class="col-sm-offset-4 col-sm-4" action="/register"
+		<form class="col-sm-offset-4 col-sm-4" action="/JSP/register"
 			method="post">
 
 			<div class="form-group">
@@ -17,8 +17,8 @@
 			</div>
 
 			<div class="form-group">
-				<label for="email">Email address:</label> <input type="email"
-					class="form-control" id="email" name="email">
+				<label for="username">Username:</label> <input type="text"
+					class="form-control" id="username" name="username">
 			</div>
 			<div class="form-group">
 				<label for="pwd">Password:</label> <input type="password"
