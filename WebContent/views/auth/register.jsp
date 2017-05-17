@@ -4,12 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login Failed</title>
+<title>Register User</title>
 </head>
 <body>
-	<p>Invalid username and password</p>
-	<a href="views/Login.jsp">Try again</a> 
-	<a href="views/auth/register.jsp">Register</a>
+
+	Register Page
 
 </body>
 </html>
