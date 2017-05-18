@@ -21,10 +21,4 @@ public class IndexBO {
     }
     return dao.all(keys);
   }
-
-  public boolean delete(Object id) {
-    HashMap<String, String> condition = new HashMap<>();
-    condition.put("id", id + "");
-    return dao.delete(condition);
-  }
 }
