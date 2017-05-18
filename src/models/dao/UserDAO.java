@@ -78,4 +78,12 @@ public class UserDAO {
     }
   }
 
+  public ArrayList<User> query(String query) {
+    ArrayList<User> users = new ArrayList<>();
+    for (String[] strings : getHelper().query(query)) {
+      users.add(new User(strings));
+    }
+    return users;
+  }
+
 }
