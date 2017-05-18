@@ -16,7 +16,7 @@
 	%>
 	<b> Welcome <%=user.getUsername()%></b>
 
-	<div class="container">
+	<div class="container col-sm-offset-2 col-sm-8">
 		<h2>User management</h2>
 
 		<form class="navbar-form navbar-left" role="search" action="index"
@@ -45,7 +45,17 @@
 				<tr>
 					<td><%=users.get(i).getUsername()%></td>
 					<td><%=users.get(i).getPassword()%></td>
-					<td><a href="">Destroy</a> <a href="">Edit</a></td>
+					<td>
+
+						<form class="form-inline">
+							<div class="form-group">
+								<a href="users?id=<%= users.get(i).getId()%>&action=delete">Delete</a>
+							</div>
+							<div class="form-group">
+								<a href="users?id=<%= users.get(i).getId()%>">Update</a>
+							</div>
+						</form>
+					</td>
 				</tr>
 				<%
 				  }
