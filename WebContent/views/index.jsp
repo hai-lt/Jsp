@@ -31,8 +31,8 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Username</th>
-					<th>Password</th>
+					<th>Last name</th>
+					<th>Role</th>
 					<th></th>
 				</tr>
 			</thead>

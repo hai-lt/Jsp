@@ -23,12 +23,12 @@
 			<h2>Update user info</h2>
 		</div>
 		<div class="form-group">
-			<label for="username">Email address:</label> <input type="text"
+			<label for="username">Last name:</label> <input type="text"
 				class="form-control" id="email" name="username"
 				value="<%=userUpdated.getUsername()%>" required>
 		</div>
 		<div class="form-group">
-			<label for="pwd">Password:</label> <input type="text"
+			<label for="pwd">Role:</label> <input type="text"
 				class="form-control" id="pwd" name="password"
 				value="<%=userUpdated.getPassword()%>" required>
 		</div>
