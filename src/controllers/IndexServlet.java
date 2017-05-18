@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.bean.User;
-import models.bo.LoginBO;
+import models.bo.IndexBO;
 import models.dao.UserDAO;
 
 /**
@@ -20,11 +20,14 @@ import models.dao.UserDAO;
 public class IndexServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
+  private IndexBO bo;
+
   /**
    * @see HttpServlet#HttpServlet()
    */
   public IndexServlet() {
     super();
+    bo = new IndexBO();
   }
 
   /**
@@ -46,6 +49,9 @@ public class IndexServlet extends HttpServlet {
       return;
     }
     request.setAttribute("user", user);
+
+    request.setAttribute("users", bo.search(request.getParameter("username")));
+
     request.getRequestDispatcher("views/index.jsp").forward(request, response);
   }
 
@@ -54,6 +60,7 @@ public class IndexServlet extends HttpServlet {
    *      response)
    */
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    request.setAttribute("searched", true);
     doGet(request, response);
   }
 
