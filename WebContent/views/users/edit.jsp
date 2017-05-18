@@ -4,9 +4,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>Edit User</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <jsp:include page="/helpers/IncludeBootstrap.jsp" />
-<title>Edit User</title>
 </head>
 <body>
 	<%
@@ -23,12 +23,12 @@
 			<h2>Update user info</h2>
 		</div>
 		<div class="form-group">
-			<label for="username">Email address:</label> <input type="text"
+			<label for="username">Last name:</label> <input type="text"
 				class="form-control" id="email" name="username"
 				value="<%=userUpdated.getUsername()%>" required>
 		</div>
 		<div class="form-group">
-			<label for="pwd">Password:</label> <input type="text"
+			<label for="pwd">Role:</label> <input type="text"
 				class="form-control" id="pwd" name="password"
 				value="<%=userUpdated.getPassword()%>" required>
 		</div>

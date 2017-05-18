@@ -15,10 +15,10 @@ public class IndexBO {
   }
 
   public ArrayList<User> search(Object username) {
-    HashMap<String, String> keys = new HashMap<>();
     if (username != null && !username.equals("")) {
-      keys.put("username", username + "");
+      String query = "SELECT * FROM users WHERE username LIKE '%" + username + "%'";
+      return dao.query(query);
     }
-    return dao.all(keys);
+    return dao.all(new HashMap<>());
   }
 }
