@@ -1,14 +1,16 @@
 package models.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import models.bean.User;
 
 public class UserDAO {
   public static final String TABLE_NAME = "users";
+  public static final String ID_KEY = "id";
   public static final String USERNAME_KEY = "username";
   public static final String PASSWORD_KEY = "password";
-  public static final String ID_KEY = "id";
+  public static final String TOKEN_KEY = "token";
   public static int columns;
   private static HelperDAO helper;
 
@@ -31,6 +33,13 @@ public class UserDAO {
       users.add(new User(strings));
     }
     return users;
+  }
+
+  public User findBy(HashMap<String, String> conditions) {
+    String userAttributes[] = getHelper().findBy(conditions);
+    if (userAttributes == null)
+      return null;
+    return new User(userAttributes);
   }
 
 }

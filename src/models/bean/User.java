@@ -15,7 +15,7 @@ public class User {
     id = strings[0];
     username = strings[1];
     password = strings[2];
-    token = strings[4];
+    token = strings[3];
   }
 
   public String getToken() {
