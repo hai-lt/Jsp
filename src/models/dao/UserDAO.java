@@ -69,4 +69,13 @@ public class UserDAO {
     }
   }
 
+  public boolean update(HashMap<String, String> attrs, HashMap<String, String> conditions) {
+    try {
+      getHelper().update(attrs, conditions);
+      return true;
+    } catch (SQLException e) {
+      return false;
+    }
+  }
+
 }
