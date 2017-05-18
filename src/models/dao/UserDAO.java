@@ -45,11 +45,19 @@ public class UserDAO {
 
   public User create(HashMap<String, String> attributes) {
     try {
-      boolean a = getHelper().create(attributes);
+      getHelper().create(attributes);
       return findBy(attributes);
     } catch (SQLException e) {
       return null;
     }
+  }
+
+  public ArrayList<User> all(HashMap<String, String> conditions) {
+    ArrayList<User> users = new ArrayList<>();
+    for (String[] strings : getHelper().all(conditions)) {
+      users.add(new User(strings));
+    }
+    return users;
   }
 
 }
