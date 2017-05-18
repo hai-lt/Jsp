@@ -14,7 +14,8 @@
 	  User user = (User) request.getAttribute("user");
 	  if (user != null) {
 	%>
-	<b> Welcome <%=user.getUsername()%></b>
+
+	<jsp:include page="/views/header.jsp" />
 
 	<div class="container col-sm-offset-2 col-sm-8">
 		<h2>User management</h2>
@@ -49,10 +50,10 @@
 
 						<form class="form-inline">
 							<div class="form-group">
-								<a href="users?id=<%= users.get(i).getId()%>&action=delete">Delete</a>
+								<a href="users?id=<%=users.get(i).getId()%>&action=delete">Delete</a>
 							</div>
 							<div class="form-group">
-								<a href="users?id=<%= users.get(i).getId()%>">Update</a>
+								<a href="users?id=<%=users.get(i).getId()%>">Update</a>
 							</div>
 						</form>
 					</td>

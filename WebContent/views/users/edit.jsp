@@ -14,13 +14,7 @@
 	  User userUpdated = (User) request.getAttribute("user_updated");
 	  if (user != null && userUpdated != null) {
 	%>
-	<nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">Welcome <%=user.getUsername()%></a>
-		</div>
-	</div>
-	</nav>
+	<jsp:include page="/views/header.jsp" />
 
 	<form class="container col-sm-4 col-sm-offset-4" action="users"
 		method="post">
