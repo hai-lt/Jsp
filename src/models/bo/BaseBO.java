@@ -3,6 +3,12 @@ package models.bo;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+
+import models.bean.User;
+import models.dao.UserDAO;
 
 public class BaseBO {
   public static String generateToken(String value) {
@@ -20,5 +26,15 @@ public class BaseBO {
     } catch (Exception e) {
       return "";
     }
+  }
+
+  public User authentication(HttpServletRequest request) {
+    String token = (String) request.getSession().getAttribute("token");
+    if (token == null) {
+      return null;
+    }
+    HashMap<String, String> condition = new HashMap<>();
+    condition.put(UserDAO.TOKEN_KEY, token);
+    return new UserDAO().findBy(condition);
   }
 }
