@@ -18,16 +18,17 @@
 
 			<div class="form-group">
 				<label for="username">Username:</label> <input type="text"
-					class="form-control" id="username" name="username">
+					class="form-control" id="username" name="username" required>
 			</div>
+
 			<div class="form-group">
 				<label for="pwd">Password:</label> <input type="password"
-					class="form-control" id="pwd" name="password">
+					class="form-control" id="pwd" name="password" required>
 			</div>
 			<div class="form-group">
 				<label for="pwd_conf">Password Confirmation:</label> <input
 					type="password" class="form-control" id="pwd_conf"
-					name="password_confirmation">
+					name="password_confirmation" required>
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
