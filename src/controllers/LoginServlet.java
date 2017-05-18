@@ -33,7 +33,13 @@ public class LoginServlet extends HttpServlet {
    *      response)
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    User user = loginBO.authenticate(request.getParameter("username"), request.getParameter("password"));
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    if (username == null || password == null) {
+      request.getRequestDispatcher("views/Login.jsp").forward(request, response);
+      return;
+    }
+    User user = loginBO.authenticate(username, password);
     if (user != null) {
       HttpSession session = request.getSession();
       session.setAttribute("token", user.getToken());
