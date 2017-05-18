@@ -60,4 +60,13 @@ public class UserDAO {
     return users;
   }
 
+  public boolean delete(HashMap<String, String> condition) {
+    try {
+      getHelper().destroy(condition);
+      return true;
+    } catch (SQLException e) {
+      return false;
+    }
+  }
+
 }

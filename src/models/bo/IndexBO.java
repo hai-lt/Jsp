@@ -13,12 +13,18 @@ public class IndexBO {
     super();
     this.dao = new UserDAO();
   }
-  
+
   public ArrayList<User> search(Object username) {
     HashMap<String, String> keys = new HashMap<>();
     if (username != null && !username.equals("")) {
-      keys.put("username", username +"");
+      keys.put("username", username + "");
     }
     return dao.all(keys);
+  }
+
+  public boolean delete(Object id) {
+    HashMap<String, String> condition = new HashMap<>();
+    condition.put("id", id + "");
+    return dao.delete(condition);
   }
 }
