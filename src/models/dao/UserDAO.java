@@ -1,5 +1,6 @@
 package models.dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -40,6 +41,15 @@ public class UserDAO {
     if (userAttributes == null)
       return null;
     return new User(userAttributes);
+  }
+
+  public User create(HashMap<String, String> attributes) {
+    try {
+      boolean a = getHelper().create(attributes);
+      return findBy(attributes);
+    } catch (SQLException e) {
+      return null;
+    }
   }
 
 }
