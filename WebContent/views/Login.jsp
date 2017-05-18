@@ -8,6 +8,12 @@
 	<jsp:include page="/helpers/IncludeBootstrap.jsp" />
 </head>
 <body>
+	<% if (session.getAttribute("success_message") != null) { %>
+		<% session.removeAttribute("success_message"); %>
+		<script type="text/javascript">
+			alert("Register successfully")
+		</script>
+	<% }%>
 	<form action="/JSP/login" method="post">
 		<div>
 			<label>Username</label> <input type="text" name="username">
