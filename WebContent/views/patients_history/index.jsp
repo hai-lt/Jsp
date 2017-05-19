@@ -40,7 +40,7 @@
 	  if (patientHistories.isEmpty()) {
 	%>
 	<h3>
-		<small>Hiện chưa có vacxin nào được nhập</small>
+		<small>Hiện chưa có members nào được nhập</small>
 	</h3>
 	<%
 	  }
