@@ -18,7 +18,7 @@
 		</thead>
 		<tbody>
 			<%
-			  ArrayList<PatientsExport> patientHistories = (ArrayList<PatientsExport>) request.getAttribute("patients_history");
+			  ArrayList<PatientsExport> patientHistories = (ArrayList<PatientsExport>) request.getAttribute("patients_histories");
 			  for (int index = 0; index < patientHistories.size(); index++) {
 			    PatientsExport patientHistory = patientHistories.get(index);
 			%>
