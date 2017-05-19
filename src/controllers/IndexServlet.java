@@ -50,7 +50,7 @@ public class IndexServlet extends HttpServlet {
     }
     request.setAttribute("user", user);
 
-    request.setAttribute("users", bo.search(request.getParameter("username")));
+    request.setAttribute("vacxins", bo.search(request.getParameter("username")));
 
     request.getRequestDispatcher("views/index.jsp").forward(request, response);
   }

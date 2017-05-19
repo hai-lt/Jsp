@@ -17,59 +17,14 @@
 
 	<jsp:include page="/views/header.jsp" />
 
-	<div class="container col-sm-offset-2 col-sm-8">
-		<h2>User management</h2>
+	<div class="container col-sm-offset-1 col-sm-10">
+		<h2>Danh sách vacxin</h2>
 
-		<form class="navbar-form navbar-left" role="search" action="index"
-			method="post">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search"
-					name="username">
-			</div>
-			<button type="submit" class="btn btn-default">Search</button>
-		</form>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Last name</th>
-					<th>Role</th>
-					<th></th>
-				</tr>
-			</thead>
-			<%
-			  ArrayList<User> users = (ArrayList<User>) request.getAttribute("users");
-			%>
-			<tbody>
-				<%
-				  for (int i = 0; i < users.size(); i++) {
-				%>
-				<tr>
-					<td><%=users.get(i).getUsername()%></td>
-					<td><%=users.get(i).getPassword()%></td>
-					<td>
+		<div class="row">
+			<jsp:include page="/views/vacxins/search.jsp" />
+			<jsp:include page="/views/vacxins/index.jsp" />
+		</div>
 
-						<form class="form-inline">
-							<div class="form-group">
-								<a href="users?id=<%=users.get(i).getId()%>&action=delete">Delete</a>
-							</div>
-							<div class="form-group">
-								<a href="users?id=<%=users.get(i).getId()%>">Update</a>
-							</div>
-						</form>
-					</td>
-				</tr>
-				<%
-				  }
-				%>
-			</tbody>
-		</table>
-		<%
-		  if (request.getAttribute("searched") != null && users.isEmpty()) {
-		%>
-		<h5>No Result is matched!</h5>
-		<%
-		  }
-		%>
 	</div>
 	<%
 	  }

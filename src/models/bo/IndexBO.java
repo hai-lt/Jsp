@@ -3,20 +3,20 @@ package models.bo;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import models.bean.User;
-import models.dao.UserDAO;
+import models.bean.Vacxin;
+import models.dao.VacxinDAO;
 
 public class IndexBO {
-  UserDAO dao;
+  VacxinDAO dao;
 
   public IndexBO() {
     super();
-    this.dao = new UserDAO();
+    this.dao = new VacxinDAO();
   }
 
-  public ArrayList<User> search(Object username) {
-    if (username != null && !username.equals("")) {
-      String query = "SELECT * FROM users WHERE username LIKE '%" + username + "%'";
+  public ArrayList<Vacxin> search(Object name) {
+    if (name != null && !name.equals("")) {
+      String query = "SELECT * FROM users WHERE " + dao.ID_NAME + " LIKE '%" + name + "%'";
       return dao.query(query);
     }
     return dao.all(new HashMap<>());
