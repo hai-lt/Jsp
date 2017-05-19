@@ -43,12 +43,15 @@
 			</tr>
 			<%
 			  }
-			  if (vacxins.isEmpty()) {
 			%>
-			<h4>Hiện chưa có vacxin nào được nhập</h4>
-			<%
-			  }
-			%>
+
 		</tbody>
 	</table>
+	<%
+	  if (vacxins.isEmpty()) {
+	%>
+	<h3><small>Hiện chưa có vacxin nào được nhập</small></h3>
+	<%
+	  }
+	%>
 </div>
