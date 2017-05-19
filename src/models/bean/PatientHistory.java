@@ -1,7 +1,14 @@
 package models.bean;
 
+import java.util.HashMap;
+
+import models.dao.PatientDAO;
+import models.dao.VacxinDAO;
+
 public class PatientHistory {
   private String vacxinID, patientId, injectionNth, injectionDate, nextDate;
+  private Vacxin vacxin;
+  private Patient patient;
 
   public PatientHistory(String... strings) {
     setAttributes(strings);
@@ -56,6 +63,32 @@ public class PatientHistory {
 
   public void setNextDate(String nextDate) {
     this.nextDate = nextDate;
+  }
+
+  public Vacxin getVacxin() {
+    if (vacxin == null) {
+      return loadVacxin();
+    }
+    return vacxin;
+  }
+
+  public Vacxin loadVacxin() {
+    HashMap<String, String> conditions = new HashMap<>();
+    conditions.put(VacxinDAO.ID_KEY, getVacxinID());
+    return vacxin = new VacxinDAO().find(conditions);
+  }
+
+  public Patient getPatient() {
+    if (patient == null) {
+      return loadPatient();
+    }
+    return patient;
+  }
+
+  public Patient loadPatient() {
+    HashMap<String, String> conditions = new HashMap<>();
+    conditions.put(PatientDAO.ID, getPatientId());
+    return patient = new PatientDAO().find(conditions);
   }
 
 }
