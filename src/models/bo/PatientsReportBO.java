@@ -11,11 +11,9 @@ public class PatientsReportBO {
   public PatientsReportBO() {
     dao = new PatientsReportDAO();
   }
-  
+
   public ArrayList<PatientsReport> index() {
     return dao.index();
   }
-  
-  
 
 }
