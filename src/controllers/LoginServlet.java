@@ -43,10 +43,11 @@ public class LoginServlet extends HttpServlet {
     if (user != null) {
       HttpSession session = request.getSession();
       session.setAttribute("token", user.getToken());
+      request.removeAttribute("login_failed");
       response.sendRedirect("index");
       return;
     }
-    request.getRequestDispatcher("views/auth/LoginFailed.jsp").forward(request, response);
+    request.getRequestDispatcher("views/Login.jsp").forward(request, response);
   }
 
   /**
@@ -54,6 +55,7 @@ public class LoginServlet extends HttpServlet {
    *      response)
    */
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    request.setAttribute("login_failed", true);
     doGet(request, response);
   }
 
