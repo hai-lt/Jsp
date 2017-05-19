@@ -8,7 +8,7 @@
 		<ul class="nav navbar-nav">
 			<li><a href="index">Danh sách Vacxin</a></li>
 			<li><a href="patients_histories">Lịch sử bệnh nhân</a></li>
-			<li><a href="#">Thống kê</a></li>
+			<li><a href="patients_reports">Thống kê</a></li>
 		</ul>
 	</div>
 </nav>
