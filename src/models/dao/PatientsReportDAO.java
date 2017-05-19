@@ -7,8 +7,8 @@ import models.bean.PatientsReport;
 public class PatientsReportDAO {
   private HelperDAO helper;
   private static String query = "SELECT customers.id, customers.full_name, sum(vacxins.price) AS price"
-      + " FROM customers" + "INNER JOIN histories ON histories.customer_id = customers.id"
-      + "INNER JOIN vacxins ON vacxins.id= histories.vacxin_id" + "GROUP BY customers.id" + "ORDER BY price";
+      + " FROM customers" + " INNER JOIN histories ON histories.customer_id = customers.id"
+      + " INNER JOIN vacxins ON vacxins.id= histories.vacxin_id" + " GROUP BY customers.id" + " ORDER BY price";
 
   public HelperDAO getHepler() {
     if (helper == null) {
