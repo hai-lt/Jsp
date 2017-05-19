@@ -29,4 +29,11 @@
 
 		</tbody>
 	</table>
+	<%
+	  if (patientsReports.isEmpty()) {
+	%>
+	<h3><small>Hiện chưa có bệnh nhân nào tới khám</small></h3>
+	<%
+	  }
+	%>
 </div>
