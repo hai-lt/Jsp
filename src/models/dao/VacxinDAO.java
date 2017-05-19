@@ -34,13 +34,17 @@ public class VacxinDAO {
     }
     return vacxins;
   }
-  
+
   public ArrayList<Vacxin> query(String query) {
     ArrayList<Vacxin> vacxins = new ArrayList<>();
     for (String[] strings : getHelper().query(query)) {
       vacxins.add(new Vacxin(strings));
     }
     return vacxins;
+  }
+
+  public Vacxin find(HashMap<String, String> conditions) {
+    return new Vacxin(getHelper().findBy(conditions));
   }
 
 }
