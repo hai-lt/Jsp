@@ -32,10 +32,10 @@
 				<td>
 					<form class="form-inline">
 						<div class="form-group">
-							<a href="users?id=<%=vacxins.get(index).getId()%>&action=delete">Delete</a>
+							<a href="vacxins?id=<%=vacxins.get(index).getId()%>&action=delete">Delete</a>
 						</div>
 						<div class="form-group">
-							<a href="users?id=<%=vacxins.get(index).getId()%>">Update</a>
+							<a href="vacxins?id=<%=vacxins.get(index).getId()%>">Update</a>
 						</div>
 					</form>
 				</td>
