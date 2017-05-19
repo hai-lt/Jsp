@@ -4,7 +4,6 @@
 	pageEncoding="UTF-8"%>
 
 <div class="container">
-	<h2>Danh sách vacxin</h2>
 	<table class="table table-bordered">
 		<thead>
 			<tr>

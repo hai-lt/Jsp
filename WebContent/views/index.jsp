@@ -18,17 +18,13 @@
 	<jsp:include page="/views/header.jsp" />
 
 	<div class="container col-sm-offset-1 col-sm-10">
-		<h2>User management</h2>
+		<h2>Danh sách vacxin</h2>
 
-		<form class="navbar-form navbar-left" role="search" action="index"
-			method="post">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search"
-					name="name">
-			</div>
-			<button type="submit" class="btn btn-default">Search</button>
-		</form>
-		<jsp:include page="/views/vacxins/index.jsp" />
+		<div class="row">
+			<jsp:include page="/views/vacxins/search.jsp" />
+			<jsp:include page="/views/vacxins/index.jsp" />
+		</div>
+
 	</div>
 	<%
 	  }
