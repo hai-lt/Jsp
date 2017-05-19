@@ -18,7 +18,8 @@
 		</thead>
 		<tbody>
 			<%
-			  ArrayList<PatientsExport> patientHistories = (ArrayList<PatientsExport>) request.getAttribute("patients_histories");
+			  ArrayList<PatientsExport> patientHistories = (ArrayList<PatientsExport>) request
+			      .getAttribute("patients_histories");
 			  for (int index = 0; index < patientHistories.size(); index++) {
 			    PatientsExport patientHistory = patientHistories.get(index);
 			%>
@@ -29,11 +30,19 @@
 				<th><%=patientHistory.getVacxinId()%></th>
 				<th><%=patientHistory.getVacxinName()%></th>
 				<th><%=patientHistory.getInjectionCounts()%></th>
-				<th></th>
 			</tr>
 			<%
 			  }
 			%>
 		</tbody>
 	</table>
+	<%
+	  if (patientHistories.isEmpty()) {
+	%>
+	<h3>
+		<small>Hiện chưa có vacxin nào được nhập</small>
+	</h3>
+	<%
+	  }
+	%>
 </div>
