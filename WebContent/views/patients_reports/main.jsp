@@ -13,6 +13,7 @@
 
 	<div class="container col-sm-offset-1 col-sm-10">
 		<h2>Thống kê</h2>
+		<jsp:include page="/views/patients_reports/index.jsp" />
 	</div>
 </body>
 </html>
