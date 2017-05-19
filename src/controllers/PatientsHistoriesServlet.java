@@ -21,7 +21,7 @@ public class PatientsHistoriesServlet extends HttpServlet {
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     request.setAttribute("patients_histories", bo.index());
-    request.getRequestDispatcher("/views/patients_history/index.jsp");
+    request.getRequestDispatcher("/views/patients_history/main_view.jsp").forward(request, response);
   }
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
