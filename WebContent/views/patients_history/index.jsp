@@ -24,12 +24,12 @@
 			    PatientsExport patientHistory = patientHistories.get(index);
 			%>
 			<tr>
-				<th><%=patientHistory.getPatientId()%></th>
-				<th><%=patientHistory.getPatientName()%></th>
-				<th><%=patientHistory.getVacxinName()%></th>
-				<th><%=patientHistory.getVacxinId()%></th>
-				<th><%=patientHistory.getVacxinName()%></th>
-				<th><%=patientHistory.getInjectionCounts()%></th>
+				<td><%=patientHistory.getPatientId()%></td>
+				<td><%=patientHistory.getPatientName()%></td>
+				<td><%=patientHistory.getVacxinName()%></td>
+				<td><%=patientHistory.getVacxinId()%></td>
+				<td><%=patientHistory.getVacxinName()%></td>
+				<td><%=patientHistory.getInjectionCounts()%></td>
 			</tr>
 			<%
 			  }
