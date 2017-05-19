@@ -12,10 +12,10 @@ public class PatientHistory {
 
   public void setAttributes(String... strings) {
     vacxinID = strings[0];
-    patientId = strings[0];
-    injectionNth = strings[0];
-    injectionDate = strings[0];
-    nextDate = strings[0];
+    patientId = strings[1];
+    injectionNth = strings[2];
+    injectionDate = strings[3];
+    nextDate = strings[4];
   }
 
   public String getVacxinID() {
