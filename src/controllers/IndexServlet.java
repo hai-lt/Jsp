@@ -22,20 +22,12 @@ public class IndexServlet extends HttpServlet {
 
   private IndexBO bo;
 
-  /**
-   * @see HttpServlet#HttpServlet()
-   */
   public IndexServlet() {
     super();
     bo = new IndexBO();
   }
 
-  /**
-   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-   *      response)
-   */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    // TODO Auto-generated method stub
     String token = (String) request.getSession().getAttribute("token");
     if (token == null) {
       request.getRequestDispatcher("/views/Login.jsp").forward(request, response);
@@ -55,13 +47,15 @@ public class IndexServlet extends HttpServlet {
     request.getRequestDispatcher("views/index.jsp").forward(request, response);
   }
 
-  /**
-   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-   *      response)
-   */
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    request.setAttribute("searched", true);
-    doGet(request, response);
+    User user = bo.authentication(request);
+    if (user != null) {
+      request.setAttribute("vacxins", bo.search(request.getParameter("name")));
+      request.setAttribute("user", user);
+      request.getRequestDispatcher("views/index.jsp").forward(request, response);
+      return;
+    }
+    response.sendRedirect("views/Login.jsp");
   }
 
 }
