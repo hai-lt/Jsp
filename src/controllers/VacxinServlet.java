@@ -31,11 +31,24 @@ public class VacxinServlet extends HttpServlet {
   }
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String action = request.getParameter("action");
+    if (action != null && action.equals("create")) {
+      create(request, response);
+      return;
+    }
+    update(request, response);
+  }
+
+  private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
     if (bo.update(request)) {
       response.sendRedirect("index");
       return;
     }
     request.getRequestDispatcher("views/vacxins/edit.jsp").forward(request, response);
+  }
+
+  private void create(HttpServletRequest request, HttpServletResponse response) {
+
   }
 
 }
