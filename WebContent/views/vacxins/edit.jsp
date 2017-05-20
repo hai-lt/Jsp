@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Vacxin</title>
 <jsp:include page="/helpers/IncludeBootstrap.jsp" />
 </head>
 <body>
