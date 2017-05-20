@@ -12,11 +12,13 @@ public class VacxinBO {
   
   public boolean delete(HttpServletRequest request) {
     HashMap<String, String> conditions = new HashMap<>();
-    conditions.put(dao.ID_KEY, request.getAttribute("id") + "");
+    conditions.put(VacxinDAO.ID_KEY, (String) request.getAttribute("id"));
     return dao.delete(conditions);
   }
   
   public Vacxin find(HttpServletRequest request) {
-    return new Vacxin();
+    HashMap<String, String> conditions = new HashMap<>();
+    conditions.put(VacxinDAO.ID_KEY, (String) request.getAttribute("id"));
+    return dao.find(conditions);
   }
 }
