@@ -11,8 +11,8 @@
 <body>
 	<jsp:include page="/views/header.jsp" />
 
-	<form class="container col-sm-4 col-sm-offset-4" action="vacxins"
-		method="post">
+	<form class="container col-sm-4 col-sm-offset-4"
+		action="<%=request.getContextPath()%>/vacxins" method="post">
 		<input type="hidden" name="action" value="create" />
 		<div class="form-group">
 			<h2>Update Vacxin</h2>
