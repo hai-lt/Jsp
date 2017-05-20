@@ -7,4 +7,6 @@
 			name="name">
 	</div>
 	<button type="submit" class="btn btn-default">Search</button>
+
+	<a href="views/vacxins/new.jsp" class="btn btn-info">Add New</a>
 </form>
