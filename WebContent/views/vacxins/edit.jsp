@@ -21,28 +21,28 @@
 			<h2>Update Vacxin</h2>
 		</div>
 		<div class="form-group">
-			<label for="username">Name:</label> <input type="text"
-				class="form-control" id="email" name="username"
+			<label for="name">Name:</label> <input type="text"
+				class="form-control" id="email" name="name"
 				value="<%=vacxin.getName()%>" required>
 		</div>
 		<div class="form-group">
-			<label for="pwd">Giá:</label> <input type="text"
-				class="form-control" id="pwd" name="password"
+			<label for="price">Giá:</label> <input type="text"
+				class="form-control" id="price" name="price"
 				value="<%=vacxin.getPrice()%>" required>
 		</div>
 		<div class="form-group">
-			<label for="pwd">Số lần tiêm:</label> <input type="text"
-				class="form-control" id="pwd" name="password"
+			<label for="counts">Số lần tiêm:</label> <input type="text"
+				class="form-control" id="counts" name="injecting_counts"
 				value="<%=vacxin.getInjecting_counts()%>" required>
 		</div>
 		<div class="form-group">
-			<label for="pwd">Nhà cung cấp:</label> <input type="text"
-				class="form-control" id="pwd" name="password"
+			<label for="supplier">Nhà cung cấp:</label> <input type="text"
+				class="form-control" id="supplier" name="supplier"
 				value="<%=vacxin.getSupplier()%>" required>
 		</div>
 		<div class="form-group">
-			<label for="pwd">Mô tả:</label> <input type="text"
-				class="form-control" id="pwd" name="password"
+			<label for="description">Mô tả:</label> <input type="text"
+				class="form-control" id="description" name="description"
 				value="<%=vacxin.getDescription()%>" required>
 		</div>
 		<button type="submit" class="btn btn-default">Update</button>
