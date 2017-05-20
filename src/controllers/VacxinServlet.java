@@ -31,7 +31,11 @@ public class VacxinServlet extends HttpServlet {
   }
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    doGet(request, response);
+    if (bo.update(request)) {
+      response.sendRedirect("index");
+      return;
+    }
+    request.getRequestDispatcher("views/vacxins/edit.jsp").forward(request, response);
   }
 
 }
