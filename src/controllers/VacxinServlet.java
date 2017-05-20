@@ -47,8 +47,12 @@ public class VacxinServlet extends HttpServlet {
     request.getRequestDispatcher("views/vacxins/edit.jsp").forward(request, response);
   }
 
-  private void create(HttpServletRequest request, HttpServletResponse response) {
-
+  private void create(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    if (bo.create(request)) {
+      response.sendRedirect("index");
+      return;
+    }
+    request.getRequestDispatcher("views/vacxins/new.jsp").forward(request, response);
   }
 
 }
