@@ -18,7 +18,7 @@ public class VacxinBO {
 
   public boolean delete(HttpServletRequest request) {
     HashMap<String, String> conditions = new HashMap<>();
-    conditions.put(VacxinDAO.ID, (String) request.getAttribute("id"));
+    conditions.put(VacxinDAO.ID, (String) request.getParameter("id"));
     return dao.delete(conditions);
   }
 
