@@ -26,9 +26,8 @@ public class VacxinServlet extends HttpServlet {
       response.sendRedirect("index");
       return;
     }
-
-    request.setAttribute("user_updated", bo.find(request));
-    request.getRequestDispatcher("views/users/edit.jsp").forward(request, response);
+    request.setAttribute("vacxin", bo.find(request));
+    request.getRequestDispatcher("views/vacxins/edit.jsp").forward(request, response);
   }
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
