@@ -57,4 +57,13 @@ public class VacxinDAO {
     }
   }
 
+  public boolean update(HashMap<String, String> attributes, HashMap<String, String> conditions) {
+    try {
+      getHelper().update(attributes, conditions);
+      return true;
+    } catch (SQLException e) {
+      return false;
+    }
+  }
+
 }
