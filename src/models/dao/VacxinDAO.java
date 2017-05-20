@@ -17,15 +17,17 @@ public class VacxinDAO {
   private static HelperDAO helper;
 
   public HelperDAO getHelper() {
-    if (helper != null)
-      return helper;
-    return helper = new HelperDAO() {
+    if (helper == null) {
+      return helper = new HelperDAO() {
 
-      @Override
-      public String getTableName() {
-        return TABLE_NAME;
-      }
-    };
+        @Override
+        public String getTableName() {
+          System.out.println(TABLE_NAME + " ========================");
+          return TABLE_NAME;
+        }
+      };
+    }
+    return helper;
   }
 
   public ArrayList<Vacxin> all(HashMap<String, String> conditions) {
