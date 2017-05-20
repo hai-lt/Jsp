@@ -1,5 +1,6 @@
 package models.dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -45,6 +46,14 @@ public class VacxinDAO {
 
   public Vacxin find(HashMap<String, String> conditions) {
     return new Vacxin(getHelper().findBy(conditions));
+  }
+
+  public boolean delete(HashMap<String, String> conditions) {
+    try {
+      return getHelper().destroy(conditions);
+    } catch (SQLException e) {
+      return false;
+    }
   }
 
 }
