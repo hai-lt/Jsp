@@ -6,7 +6,7 @@ import java.util.HashMap;
 import models.bean.Vacxin;
 import models.dao.VacxinDAO;
 
-public class IndexBO {
+public class IndexBO extends BaseBO {
   VacxinDAO dao;
 
   public IndexBO() {
@@ -16,7 +16,7 @@ public class IndexBO {
 
   public ArrayList<Vacxin> search(Object name) {
     if (name != null && !name.equals("")) {
-      String query = "SELECT * FROM users WHERE " + dao.NAME + " LIKE '%" + name + "%'";
+      String query = "SELECT * FROM vacxins WHERE " + dao.NAME + " LIKE '%" + name + "%'";
       return dao.query(query);
     }
     return dao.all(new HashMap<>());
