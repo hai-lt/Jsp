@@ -22,7 +22,6 @@ public class VacxinDAO {
 
         @Override
         public String getTableName() {
-          System.out.println(TABLE_NAME + " ========================");
           return TABLE_NAME;
         }
       };
