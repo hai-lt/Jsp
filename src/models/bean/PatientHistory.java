@@ -74,7 +74,7 @@ public class PatientHistory {
 
   public Vacxin loadVacxin() {
     HashMap<String, String> conditions = new HashMap<>();
-    conditions.put(VacxinDAO.ID_KEY, getVacxinID());
+    conditions.put(VacxinDAO.ID, getVacxinID());
     return vacxin = new VacxinDAO().find(conditions);
   }
 

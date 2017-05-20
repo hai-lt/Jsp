@@ -8,12 +8,12 @@ import models.bean.Vacxin;
 
 public class VacxinDAO {
   public static String TABLE_NAME = "vacxins";
-  public static String ID_KEY = "id";
-  public static String ID_NAME = "name";
-  public static String ID_DESCRIPTION = "description";
-  public static String ID_PRICE = "price";
-  public static String ID_INJECTING_COUNTS = "injecting_counts";
-  public static String ID_SUPPLIER = "supplier";
+  public static String ID = "id";
+  public static String NAME = "name";
+  public static String DESCRIPTION = "description";
+  public static String PRICE = "price";
+  public static String INJECTING_COUNTS = "injecting_counts";
+  public static String SUPPLIER = "supplier";
   private static HelperDAO helper;
 
   public HelperDAO getHelper() {

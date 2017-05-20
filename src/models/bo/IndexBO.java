@@ -16,7 +16,7 @@ public class IndexBO {
 
   public ArrayList<Vacxin> search(Object name) {
     if (name != null && !name.equals("")) {
-      String query = "SELECT * FROM users WHERE " + dao.ID_NAME + " LIKE '%" + name + "%'";
+      String query = "SELECT * FROM users WHERE " + dao.NAME + " LIKE '%" + name + "%'";
       return dao.query(query);
     }
     return dao.all(new HashMap<>());
